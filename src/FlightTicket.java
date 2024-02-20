@@ -25,7 +25,6 @@ public class FlightTicket {
                 price = (age < 12) ? price - (price * childDiscount) : age < 24 ? price - (price * teenagerDiscount)
                         : (age >= 65) ? price - (price * oldDiscount) : price;
 
-                System.out.println("Price: " + price);
                 System.out.println("Select ticket type:\n1) One-Way \t 2) Round-Trip");
                 ticketType = scan.nextInt();
 
