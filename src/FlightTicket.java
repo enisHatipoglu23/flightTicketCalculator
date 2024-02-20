@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class FlightTicket {
     // Defined variables. I added discount variables too. It's more understandable this way.
     // I tried to use different conditional operators on this code. (if-else, switch-case, ternary-operator).
-    double km, pricePerKm = 0.1, totalPrice, price, rtDiscount=0.2,
+    double km, pricePerKm = 0.10, totalPrice, price, rtDiscount=0.2,
             childDiscount=0.5, teenagerDiscount = 0.1, oldDiscount = 0.2;
     int age, ticketType;
     final String WELCOME = "-----Welcome to Flight Ticket Calculator-----\n";
@@ -15,9 +15,9 @@ public class FlightTicket {
         km = scan.nextDouble();
 
         // Checking if distance is negative or too big number. If distance is too big or negative it returns the function again.
-        if (!(km <= 0) && !(km >= 1000000)) {
+        if ((km > 0) && (km <= 100000)) {
             price = km * pricePerKm;
-            System.out.println("Enter your age: ");
+            System.out.print("Enter your age: ");
             age = scan.nextInt();
             // Checking if age input is invalid or ok. If it's invalid it returns the function again.
             if(age>0 && age<121){
@@ -28,7 +28,7 @@ public class FlightTicket {
                 System.out.println("Select ticket type:\n1) One-Way \t 2) Round-Trip");
                 ticketType = scan.nextInt();
 
-                //Using switch-case for selecting the type of ticket.
+                // Switch-case used for selecting the type of ticket.
                 switch (ticketType){
                     case 1 :
                         totalPrice = price;
