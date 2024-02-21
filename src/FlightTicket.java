@@ -2,8 +2,8 @@ import java.util.Scanner;
 public class FlightTicket {
     // Defined variables. I added discount variables too. It's more understandable this way.
     // I tried to use different conditional operators on this code. (if-else, switch-case, ternary-operator).
-    double km, pricePerKm = 0.10, totalPrice, price, rtDiscount=0.2,
-            childDiscount=0.5, teenagerDiscount = 0.1, oldDiscount = 0.2;
+    double km, pricePerKm = 0.10, totalPrice, price, rtDiscount=0.8,
+            childDiscount=0.5, teenagerDiscount = 0.9, oldDiscount = 0.8;
     int age, ticketType;
     final String WELCOME = "-----Welcome to Flight Ticket Calculator-----\n";
     Scanner scan = new Scanner(System.in);
@@ -22,13 +22,13 @@ public class FlightTicket {
             // Checking if age input is invalid or ok. If it's invalid it returns the function again.
             if(age>0 && age<121){
                 // Calculating price according to age. Ternary operator used.
-                price = (age < 12) ? price - (price * childDiscount) : age < 24 ? price - (price * teenagerDiscount)
-                        : (age >= 65) ? price - (price * oldDiscount) : price;
+                price = (age < 12) ? (price * childDiscount) : age < 24 ? (price * teenagerDiscount)
+                        : (age >= 65) ? (price * oldDiscount) : price;
 
                 System.out.println("Select ticket type:\n1) One-Way \t 2) Round-Trip");
                 ticketType = scan.nextInt();
 
-                // Switch-case used for selecting the type of ticket.
+                //Using switch-case for selecting the type of ticket.
                 switch (ticketType){
                     case 1 :
                         totalPrice = price;
@@ -37,7 +37,7 @@ public class FlightTicket {
                         break;
                     case 2 :
                         // Multiplying the price by 2 due to round trip.
-                        totalPrice = (price*2) - (price*2*rtDiscount);
+                        totalPrice = (price*2*rtDiscount);
                         System.out.println("You selected Round-Trip ticket.\n" +
                                 "Because of selecting round-trip, we have a special %20 discount for you.\n" +
                                 "Total price is " + totalPrice + "₺");
